@@ -1,6 +1,6 @@
 @extends('../layouts.master')
 @section('content')
-    <form method="POST" action="{{route('speakers.postCreate')}}">
+    <form method="POST" action="{{route('speakers.postCreate')}}" class="mb-5">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" name="name" class="form-control">
@@ -8,6 +8,15 @@
         <div class="form-group">
             <label for="description">Description</label>
             <textarea name="description" cols="30" rows="10" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Keywords</label>
+            @foreach ($keywords as $keyword)
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="keywords[]" value="{{$keyword['id']}}" id="{{$keyword['id']}}">
+                    <label for="{{$keyword['id']}}" class="custom-control-label">{{$keyword['name']}}</label>
+                </div>
+            @endforeach
         </div>
         <div class="form-group">
             <label for="website">Website</label>

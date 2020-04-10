@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Keyword;
 use App\Spreker;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class SprekerController extends Controller
 
     public function getEdit($id){
         $speakers = Spreker::where('id', $id)->first();
-        return view('content.speakersEdit', ['speaker' => $speakers]);
+        $keywords = Keyword::all();
+        return view('content.speakersEdit', ['speaker' => $speakers, 'keywords' => $keywords]);
     }
 
     public function postUpdate(Request $request){
@@ -26,6 +28,8 @@ class SprekerController extends Controller
         $speaker->website = $request->input('website');
 
         $speaker->save();
+
+        $speaker->keywords()->sync($request->input('keywords') === null ? '' : $request->input('keywords'));
 
         return redirect()->action('SprekerController@getIndex');
     }
@@ -38,7 +42,8 @@ class SprekerController extends Controller
     }
 
     public function getCreate(){
-        return view('content.speakersCreate');
+        $keywords = Keyword::all();
+        return view('content.speakersCreate', ['keywords' => $keywords]);
     }
 
     public function postCreate(Request $request){

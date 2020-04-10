@@ -14,5 +14,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('content.index');
 });
+
+Route::get('home', function () {
+    return view('content.index');
+})->name('home');
+
+Route::get('sprekers', [
+    'uses' => 'SprekerController@getIndex',
+    'as' => 'sprekers'
+]);
+
+Route::get('createspreker', [
+    'uses' => 'SprekerController@getCreate',
+    'as' => 'sprekers.create'
+]);
+
+Route::post('postcreatespreker', [
+    'uses' => 'SprekerController@postCreate',
+    'as' => 'sprekers.postcreate'
+]);
+
+Route::get('spreker/{id}', [
+    'uses' => 'SprekerController@getEdit',
+    'as' => 'sprekers.edit'
+]);
+
+Route::post('updatespreker', [
+    'uses' => 'SprekerController@postUpdate',
+    'as' => 'sprekers.update'
+]);
+
+Route::get('deletespreker/{id}', [
+    'uses' => 'SprekerController@getDelete',
+    'as' => 'sprekers.delete'
+]);

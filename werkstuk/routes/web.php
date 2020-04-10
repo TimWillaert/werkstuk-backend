@@ -21,32 +21,29 @@ Route::get('home', function () {
     return view('content.index');
 })->name('home');
 
-Route::get('sprekers', [
-    'uses' => 'SprekerController@getIndex',
-    'as' => 'sprekers'
-]);
-
-Route::get('createspreker', [
-    'uses' => 'SprekerController@getCreate',
-    'as' => 'sprekers.create'
-]);
-
-Route::post('postcreatespreker', [
-    'uses' => 'SprekerController@postCreate',
-    'as' => 'sprekers.postcreate'
-]);
-
-Route::get('spreker/{id}', [
-    'uses' => 'SprekerController@getEdit',
-    'as' => 'sprekers.edit'
-]);
-
-Route::post('updatespreker', [
-    'uses' => 'SprekerController@postUpdate',
-    'as' => 'sprekers.update'
-]);
-
-Route::get('deletespreker/{id}', [
-    'uses' => 'SprekerController@getDelete',
-    'as' => 'sprekers.delete'
-]);
+Route::group(['prefix' => 'speakers'], function () {
+    Route::get('', [
+        'uses' => 'SprekerController@getIndex',
+        'as' => 'speakers'
+    ]);
+    Route::get('edit/{id}', [
+        'uses' => 'SprekerController@getEdit',
+        'as' => 'speakers.edit'
+    ]);
+    Route::get('create', [
+        'uses' => 'SprekerController@getCreate',
+        'as' => 'speakers.create'
+    ]);
+    Route::post('postCreate', [
+        'uses' => 'SprekerController@postCreate',
+        'as' => 'speakers.postCreate'
+    ]);
+    Route::post('update', [
+        'uses' => 'SprekerController@postUpdate',
+        'as' => 'speakers.update'
+    ]);
+    Route::get('delete/{id}', [
+        'uses' => 'SprekerController@getDelete',
+        'as' => 'speakers.delete'
+    ]);
+});

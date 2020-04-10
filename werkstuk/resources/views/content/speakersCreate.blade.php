@@ -1,6 +1,6 @@
 @extends('../layouts.master')
 @section('content')
-    <form method="POST" action="{{route('sprekers.postcreate')}}">
+    <form method="POST" action="{{route('speakers.postCreate')}}">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" name="name" class="form-control">
@@ -15,6 +15,6 @@
         </div>
         @csrf
         <button class="btn btn-primary" type="submit">Submit</button>
-        <a href="{{route('sprekers')}}" class="btn btn-outline-primary">Cancel</a>
+        <a href="{{route('speakers')}}" class="btn btn-outline-primary">Cancel</a>
     </form>
 @endsection

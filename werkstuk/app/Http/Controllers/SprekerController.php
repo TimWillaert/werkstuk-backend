@@ -9,46 +9,46 @@ class SprekerController extends Controller
 {
 
     public function getIndex(){
-        $sprekers = Spreker::orderBy('name', 'asc')->get();
-        return view('content.sprekers', ['sprekers' => $sprekers]);
+        $speakers = Spreker::orderBy('name', 'asc')->get();
+        return view('content.speakersIndex', ['speakers' => $speakers]);
     }
 
     public function getEdit($id){
-        $spreker = Spreker::where('id', $id)->first();
-        return view('content.editspreker', ['spreker' => $spreker]);
+        $speakers = Spreker::where('id', $id)->first();
+        return view('content.speakersEdit', ['speaker' => $speakers]);
     }
 
     public function postUpdate(Request $request){
-        $spreker = Spreker::find($request->input('id'));
+        $speaker = Spreker::find($request->input('id'));
 
-        $spreker->name = $request->input('name');
-        $spreker->description = $request->input('description');
-        $spreker->website = $request->input('website');
+        $speaker->name = $request->input('name');
+        $speaker->description = $request->input('description');
+        $speaker->website = $request->input('website');
 
-        $spreker->save();
+        $speaker->save();
 
         return redirect()->action('SprekerController@getIndex');
     }
 
     public function getDelete($id){
-         $spreker = Spreker::find($id);
-         $spreker->delete();
+         $speaker = Spreker::find($id);
+         $speaker->delete();
 
          return redirect()->action('SprekerController@getIndex');
     }
 
     public function getCreate(){
-        return view('content.createspreker');
+        return view('content.speakersCreate');
     }
 
     public function postCreate(Request $request){
-        $spreker = new Spreker([
+        $speaker = new Spreker([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'website' => $request->input('website')
         ]);
 
-        $spreker->save();
+        $speaker->save();
 
         return redirect()->action('SprekerController@getIndex');
     }

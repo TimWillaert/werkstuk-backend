@@ -6,10 +6,14 @@
         <div class="card mb-3">
             <div class="card-body">
                 <h5 class="card-title">{{$session->title}}</h5>
-                <h6 class="text-muted">by {{$session->spreker->name}}</h6>
-                <a href="{{route('sessions.edit', ['id' => $session->id])}}" class="btn btn-info mt-4">Edit</a>
-                <a href="{{route('sessions.delete', ['id' => $session->id])}}" class="btn btn-danger mt-4">Delete</a>
+                <h6 class="text-muted">by {{$session->spreker->name}} - {{$session->time_start}} to {{$session->time_end}} - {{$session->location}}</h6>
+                <div class="mt-4">
+                    <a href="{{route('sessions.edit', ['id' => $session->id])}}" class="btn btn-info">Edit</a>
+                    <a href="{{route('sessions.delete', ['id' => $session->id])}}" class="btn btn-danger">Delete</a>
+                </div>
             </div>
         </div>
     @endforeach
+    <hr>
+    {{$sessions->links()}}
 @endsection

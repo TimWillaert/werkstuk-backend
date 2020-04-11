@@ -11,4 +11,14 @@ class Sessie extends Model
     public function spreker(){
         return $this->belongsTo('App\Spreker');
     }
+
+    public function getTimeStartAttribute($value){
+        $str = explode(':', $value);
+        return $str[0] . ":" . $str[1];
+    }
+
+    public function getTimeEndAttribute($value){
+        $str = explode(':', $value);
+        return $str[0] . ":" . $str[1];
+    }
 }

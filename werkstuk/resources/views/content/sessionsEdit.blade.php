@@ -10,18 +10,22 @@
             <textarea name="description" cols="30" rows="5" class="form-control">{{$session->description}}</textarea>
         </div>
         <div class="form-group">
-            <label for="speaker">Speaker</label>
-            <select name="speaker" class="form-control">
-            @foreach ($speakers as $speaker)
-                <option value="{{$speaker->id}}" @if ($session->spreker->id === $speaker->id)
-                    selected
-                @endif>{{$speaker->name}}</option>
-            @endforeach
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="location">Location</label>
-            <input type="text" name="location" class="form-control" value="{{$session->location}}">
+            <div class="form-row">
+                <div class="col">
+                    <label for="speaker">Speaker</label>
+                    <select name="speaker" class="form-control">
+                    @foreach ($speakers as $speaker)
+                        <option value="{{$speaker->id}}" @if ($session->spreker->id === $speaker->id)
+                            selected
+                        @endif>{{$speaker->name}}</option>
+                    @endforeach
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="location">Location</label>
+                    <input type="text" name="location" class="form-control" value="{{$session->location}}">
+                </div>
+            </div>
         </div>
         <div class="form-group">
         <div class="form-row">

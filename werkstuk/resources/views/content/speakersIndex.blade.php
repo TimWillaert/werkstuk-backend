@@ -9,7 +9,7 @@
             <hr>
             @if (count($speaker->sessions)>0)
                 @foreach ($speaker->sessions as $session)
-                <h6 class="text-muted">{{$session->title}}</h6>
+        <h6 class="text-muted">{{$session->title}} - {{$session->time_start}} to {{$session->time_end}}</h6>
                 @endforeach
             @else
                 <h6 class="text-muted">No assigned sessions</h6>
@@ -22,5 +22,6 @@
         </div>
     </div>
     @endforeach
+    <hr>
     {{$speakers->links()}}
 @endsection

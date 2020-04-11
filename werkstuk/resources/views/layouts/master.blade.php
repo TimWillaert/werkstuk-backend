@@ -10,7 +10,7 @@
 
 <body>
     @include('../partials.headerpartial')
-    <div class="container mt-5 mb-5">
+    <div class="container mt-5 mb-5" style="min-height: 70vh;">
         @yield('content')
     </div>
     @include('../partials.footerpartial')

@@ -11,4 +11,12 @@ class Spreker extends Model
     public function keywords(){
         return $this->belongsToMany('App\Keyword', 'spreker_keyword', 'spreker_id', 'keyword_id')->withTimestamps();
     }
+
+    public function images(){
+        return $this->hasMany('App\Image');
+    }
+
+    public function sessions(){
+        return $this->hasMany('App\Sessie');
+    }
 }

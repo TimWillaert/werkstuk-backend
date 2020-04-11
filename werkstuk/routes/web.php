@@ -21,6 +21,33 @@ Route::get('home', function () {
     return view('content.index');
 })->name('home');
 
+Route::group(['prefix' => 'sessions'], function () {
+    Route::get('', [
+        'uses' => 'SessieController@getIndex',
+        'as' => 'sessions'
+    ]);
+    Route::get('edit/{id}', [
+        'uses' => 'SessieController@getEdit',
+        'as' => 'sessions.edit'
+    ]);
+    Route::get('create', [
+        'uses' => 'SessieController@getCreate',
+        'as' => 'sessions.create'
+    ]);
+    Route::post('postCreate', [
+        'uses' => 'SessieController@postCreate',
+        'as' => 'sessions.postCreate'
+    ]);
+    Route::post('update', [
+        'uses' => 'SessieController@postUpdate',
+        'as' => 'sessions.update'
+    ]);
+    Route::get('delete/{id}', [
+        'uses' => 'SessieController@getDelete',
+        'as' => 'sessions.delete'
+    ]);
+});
+
 Route::group(['prefix' => 'speakers'], function () {
     Route::get('', [
         'uses' => 'SprekerController@getIndex',

@@ -2,22 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use App\Keyword;
 use App\Spreker;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Foreach_;
 
 class SprekerController extends Controller
 {
 
     public function getIndex(){
-        $speakers = Spreker::orderBy('name', 'asc')->get();
+        $speakers = Spreker::orderBy('name', 'asc')->with('sessions')->paginate(3);
         return view('content.speakersIndex', ['speakers' => $speakers]);
     }
 
     public function getEdit($id){
-        $speakers = Spreker::where('id', $id)->first();
+        $speaker = Spreker::where('id', $id)->with('images')->first();
         $keywords = Keyword::all();
-        return view('content.speakersEdit', ['speaker' => $speakers, 'keywords' => $keywords]);
+
+        return view('content.speakersEdit', ['speaker' => $speaker, 'keywords' => $keywords]);
     }
 
     public function postUpdate(Request $request){
@@ -29,13 +32,15 @@ class SprekerController extends Controller
 
         $speaker->save();
 
-        $speaker->keywords()->sync($request->input('keywords') === null ? '' : $request->input('keywords'));
+        $speaker->keywords()->sync($request->input('keywords') === null ? null : $request->input('keywords'));
 
         return redirect()->action('SprekerController@getIndex');
     }
 
     public function getDelete($id){
          $speaker = Spreker::find($id);
+         $speaker->images()->delete();
+         $speaker->keywords()->detach();
          $speaker->delete();
 
          return redirect()->action('SprekerController@getIndex');
@@ -54,6 +59,23 @@ class SprekerController extends Controller
         ]);
 
         $speaker->save();
+
+        $img = new Image([
+            'src' => base64_encode(file_get_contents($request->file('image1')))
+        ]);
+        $speaker->images()->save($img);
+
+        $img = new Image([
+            'src' => base64_encode(file_get_contents($request->file('image2')))
+        ]);
+        $speaker->images()->save($img);
+
+        $img = new Image([
+            'src' => base64_encode(file_get_contents($request->file('image3')))
+        ]);
+        $speaker->images()->save($img);
+
+        $speaker->keywords()->sync($request->input('keywords') === null ? '' : $request->input('keywords'));
 
         return redirect()->action('SprekerController@getIndex');
     }

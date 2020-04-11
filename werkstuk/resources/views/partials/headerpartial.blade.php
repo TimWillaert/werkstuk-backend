@@ -5,8 +5,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" href="#">Sessions</a>
-        <a class="nav-item nav-link" href="{{route('speakers')}}">Speakers and Keywords</span></a>
+        <a class="nav-item nav-link" href="{{route('sessions')}}">Sessions</a>
+        <a class="nav-item nav-link" href="{{route('speakers')}}">Speakers</span></a>
         <a class="nav-item nav-link" href="#">Timetable</a>
         <a class="nav-item nav-link" href="#">Sponsors and Partners</a>
         <a class="nav-item nav-link" href="#">Tickets</a>

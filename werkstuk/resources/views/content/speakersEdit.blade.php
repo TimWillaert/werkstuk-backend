@@ -7,7 +7,7 @@
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea name="description" cols="30" rows="10" class="form-control">{{$speaker->description}}</textarea>
+            <textarea name="description" cols="30" rows="5" class="form-control">{{$speaker->description}}</textarea>
         </div>
         <div class="form-group">
             <label>Keywords</label>
@@ -22,6 +22,9 @@
             <label for="website">Website</label>
             <input type="text" name="website" class="form-control" value="{{$speaker->website}}">
         </div>
+        @foreach ($speaker->images as $image)
+            <img src="data:image/png;base64, {{$image->src}}">
+        @endforeach
         @csrf
         <input type="hidden" value="{{$speaker->id}}" name="id">
         <button class="btn btn-primary" type="submit">Update</button>

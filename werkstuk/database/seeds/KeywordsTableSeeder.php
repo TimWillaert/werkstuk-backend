@@ -37,6 +37,10 @@ class KeywordsTableSeeder extends Seeder
             'name' => 'Prize Winner'
         ]);
         $keyword->save();
+        $keyword = new Keyword([
+            'name' => 'Stage Designer'
+        ]);
+        $keyword->save();
 
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Sessie;
 use App\Spreker;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Factory;
 
 class SessieController extends Controller
 {
@@ -20,30 +21,43 @@ class SessieController extends Controller
         return view('content.sessionsEdit', ['session' => $session, 'speakers' => $speakers]);
     }
 
-    public function postUpdate(Request $request){
-        $session = Sessie::find($request->input('id'));
+    public function postUpdate(Request $request, Factory $validator){
+        $validation = $validator->make($request->all(), [
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'required|date',
+            'time_start' => 'required',
+            'time_end' => 'required',
+            'location' => 'required'
+        ]);
 
-        $session->title = $request->input('title');
-        $session->description = $request->input('description');
-        $session->date = $request->input('date');
-        $session->time_start = $request->input('time_start');
-        $session->time_end = $request->input('time_end');
-        $session->location = $request->input('location');
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation);
+        } else{
+            $session = Sessie::find($request->input('id'));
 
-        $session->save();
+            $session->title = $request->input('title');
+            $session->description = $request->input('description');
+            $session->date = $request->input('date');
+            $session->time_start = $request->input('time_start');
+            $session->time_end = $request->input('time_end');
+            $session->location = $request->input('location');
 
-        $speaker = Spreker::find($request->input('speaker'));
+            $session->save();
 
-        $speaker->sessions()->save($session);
+            $speaker = Spreker::find($request->input('speaker'));
 
-        return redirect()->action('SessieController@getIndex');
+            $speaker->sessions()->save($session);
+
+            return redirect()->action('SessieController@getIndex')->with('updated', $session->title);
+        }
     }
 
     public function getDelete($id){
         $session = Sessie::find($id);
         $session->delete();
 
-        return redirect()->action('SessieController@getIndex');
+        return redirect()->action('SessieController@getIndex')->with('deleted', $session->title);
    }
 
     public function getCreate(){
@@ -51,20 +65,32 @@ class SessieController extends Controller
         return view('content.sessionsCreate', ['speakers' => $speakers]);
     }
 
-    public function postCreate(Request $request){
-        $session = new Sessie([
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'date' => $request->input('date'),
-            'time_start' => $request->input('time_start'),
-            'time_end' => $request->input('time_end'),
-            'location' => $request->input('location')
+    public function postCreate(Request $request, Factory $validator){
+        $validation = $validator->make($request->all(), [
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'required|date',
+            'time_start' => 'required',
+            'time_end' => 'required',
+            'location' => 'required'
         ]);
 
-        $speaker = Spreker::find($request->input('speaker'));
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation);
+        } else{
+            $session = new Sessie([
+                'title' => $request->input('title'),
+                'description' => $request->input('description'),
+                'date' => $request->input('date'),
+                'time_start' => $request->input('time_start'),
+                'time_end' => $request->input('time_end'),
+                'location' => $request->input('location')
+            ]);
 
-        $speaker->sessions()->save($session);
+            $speaker = Spreker::find($request->input('speaker'));
+            $speaker->sessions()->save($session);
 
-        return redirect()->action('SessieController@getIndex');
+            return redirect()->action('SessieController@getIndex')->with('added', $session->title);
+        }
     }
 }

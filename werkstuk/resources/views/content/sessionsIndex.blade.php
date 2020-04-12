@@ -1,5 +1,6 @@
 @extends('../layouts.master')
 @section('content')
+@include('../partials/successalert')
     <a href="{{route('sessions.create')}}" role="button" class="btn btn-primary">Add session</a>
     <hr>
     @foreach ($sessions as $session)

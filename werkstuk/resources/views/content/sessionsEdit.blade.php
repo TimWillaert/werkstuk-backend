@@ -1,5 +1,6 @@
 @extends('../layouts.master')
 @section('content')
+@include('../partials/erroralert')
     <form method="POST" action="{{route('sessions.update')}}" class="mb-5">
         <div class="form-group">
             <label for="title">Title</label>

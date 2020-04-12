@@ -9,8 +9,10 @@ use Illuminate\Validation\Factory;
 class PartnerController extends Controller
 {
     public function getIndex(){
-        $partners = Partner::orderBy('name', 'asc')->get();
-        return view('content.partnersIndex', ['partners' => $partners]);
+        $goldpartners = Partner::where('level', 'Gold')->orderBy('name', 'asc')->get();
+        $silverpartners = Partner::where('level', 'Silver')->orderBy('name', 'asc')->get();
+        $bronzepartners = Partner::where('level', 'Bronze')->orderBy('name', 'asc')->get();
+        return view('content.partnersIndex', ['goldpartners' => $goldpartners, 'silverpartners' => $silverpartners, 'bronzepartners' => $bronzepartners]);
     }
 
     public function getEdit($id){

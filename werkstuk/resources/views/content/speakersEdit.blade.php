@@ -26,7 +26,7 @@
             <label>Key images</label>
             @foreach ($speaker->images as $image)
                 <div>
-                    <img src="data:image/png;base64, {{$image->src}}" class="rounded" style="width: 100px; height: 100px;">
+                    <img src="data:image/png;base64, {{$image->src}}" class="rounded mb-2" style="width: 100px; height: 100px;">
                 </div>
             @endforeach
         </div>

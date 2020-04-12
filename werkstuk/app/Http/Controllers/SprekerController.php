@@ -84,16 +84,19 @@ class SprekerController extends Controller
             $speaker->save();
 
             $img = new Image([
+                'name' => $request->file('image1')->getClientOriginalName(),
                 'src' => base64_encode(file_get_contents($request->file('image1')))
             ]);
             $speaker->images()->save($img);
 
             $img = new Image([
+                'name' => $request->file('image2')->getClientOriginalName(),
                 'src' => base64_encode(file_get_contents($request->file('image2')))
             ]);
             $speaker->images()->save($img);
 
             $img = new Image([
+                'name' => $request->file('image3')->getClientOriginalName(),
                 'src' => base64_encode(file_get_contents($request->file('image3')))
             ]);
             $speaker->images()->save($img);

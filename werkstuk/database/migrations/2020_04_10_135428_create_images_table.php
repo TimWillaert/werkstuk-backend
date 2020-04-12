@@ -3,6 +3,7 @@
 use App\Image;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateImagesTable extends Migration
@@ -16,10 +17,14 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
-            $table->binary('src');
+            $table->string('name');
             $table->integer('spreker_id');
             $table->timestamps();
         });
+
+        //Scheme builder kan enkel blob toevoegen, geen longblob
+        //blob laat enkel zeer kleine file sizes toe, dus moet ik manueel een longblob column toevoegen.
+        DB::statement('ALTER TABLE images ADD src LONGBLOB');
     }
 
     /**

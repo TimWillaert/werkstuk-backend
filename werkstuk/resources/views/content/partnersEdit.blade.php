@@ -27,9 +27,14 @@
         </div>
         <div class="form-group">
             <label>Logo</label>
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile" name="logo">
-                <label class="custom-file-label" for="customFile">{{$partner->imgname}}</label>
+            <div class="row">
+                <div class="col-1">
+                    <img class="rounded" src="data:image/png;base64, {{$partner->img}}" style="width: 40px; height: 40px; object-fit: cover;">
+                </div>
+                <div class="col-11">
+                    <input type="file" class="custom-file-input" id="customFile" name="logo">
+                    <label class="custom-file-label" for="customFile">{{$partner->imgname}}</label>
+                </div>
             </div>
         </div>
         <div class="form-group mb-4">

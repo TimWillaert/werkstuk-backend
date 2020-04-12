@@ -6,11 +6,12 @@
     @foreach ($speakers as $speaker)
     <div class="card mb-4">
         <div class="card-body">
-            <h5 class="card-title">{{$speaker->name}}</h5>
+            <img class="d-inline mr-2" src="data:image/png;base64, {{$speaker->profilepic}}" style="width: 40px; height: 40px; border-radius: 50px; object-fit: cover;">
+            <h5 class="card-title d-inline">{{$speaker->name}}</h5>
             <hr>
             @if (count($speaker->sessions)>0)
                 @foreach ($speaker->sessions as $session)
-        <h6 class="text-muted">{{$session->title}} - {{$session->time_start}} to {{$session->time_end}}</h6>
+            <h6 class="text-muted">{{$session->title}} - {{$session->time_start}} to {{$session->time_end}}</h6>
                 @endforeach
             @else
                 <h6 class="text-muted">No assigned sessions</h6>

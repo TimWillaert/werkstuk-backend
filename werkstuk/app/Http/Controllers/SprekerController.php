@@ -40,6 +40,58 @@ class SprekerController extends Controller
             $speaker->description = $request->input('description');
             $speaker->website = $request->input('website');
 
+            $img1 = new Image([
+                'name' => $speaker->images[0]->name,
+                'src' => $speaker->images[0]->src
+            ]);
+            $img2 = new Image([
+                'name' => $speaker->images[1]->name,
+                'src' => $speaker->images[1]->src
+            ]);
+            $img3 = new Image([
+                'name' => $speaker->images[2]->name,
+                'src' => $speaker->images[2]->src
+            ]);
+
+            if($request->file('profilepic')){
+                if($speaker->profilepic != base64_encode(file_get_contents($request->file('profilepic')))){
+                    $speaker->profilepicname = $request->file('profilepic')->getClientOriginalName();
+                    $speaker->profilepic = base64_encode(file_get_contents($request->file('profilepic')));
+                }
+            }
+
+            if($request->file('image1')){
+                if($img1->src != base64_encode(file_get_contents($request->file('image1')))){
+                    $img1 = new Image([
+                        'name' => $request->file('image1')->getClientOriginalName(),
+                        'src' => base64_encode(file_get_contents($request->file('image1')))
+                    ]);
+                }
+            }
+
+            if($request->file('image2')){
+                if($img2->src != base64_encode(file_get_contents($request->file('image2')))){
+                    $img2 = new Image([
+                        'name' => $request->file('image2')->getClientOriginalName(),
+                        'src' => base64_encode(file_get_contents($request->file('image2')))
+                    ]);
+                }
+            }
+            if($request->file('image3')){
+                if($img3->src != base64_encode(file_get_contents($request->file('image3')))){
+                    $img3 = new Image([
+                        'name' => $request->file('image3')->getClientOriginalName(),
+                        'src' => base64_encode(file_get_contents($request->file('image3')))
+                    ]);
+                }
+            }
+
+            $speaker->images()->delete();
+
+            $speaker->images()->save($img1);
+            $speaker->images()->save($img2);
+            $speaker->images()->save($img3);
+
             $speaker->save();
 
             $speaker->keywords()->sync($request->input('keywords') === null ? null : $request->input('keywords'));
@@ -78,7 +130,9 @@ class SprekerController extends Controller
             $speaker = new Spreker([
                 'name' => $request->input('name'),
                 'description' => $request->input('description'),
-                'website' => $request->input('website')
+                'website' => $request->input('website'),
+                'profilepicname' => $request->file('profilepic')->getClientOriginalName(),
+                'profilepic' => base64_encode(file_get_contents($request->file('profilepic')))
             ]);
 
             $speaker->save();

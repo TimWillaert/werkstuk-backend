@@ -2,7 +2,6 @@
 
 use App\Partner;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Storage;
 
 class PartnerTableSeeder extends Seeder
 {
@@ -19,7 +18,7 @@ class PartnerTableSeeder extends Seeder
             'level' => 'Gold',
             'website' => 'https://www.bozar.be/',
             'imgname' => 'bozar.jpg',
-            'img' => base64_encode(file_get_contents(storage_path('app/public/bozar.jpg')))
+            'img' => base64_encode(file_get_contents(storage_path('app/public/logos/bozar.jpg')))
         ]);
         $partner->save();
         $partner = new Partner([
@@ -28,7 +27,7 @@ class PartnerTableSeeder extends Seeder
             'level' => 'Gold',
             'website' => 'https://www.erasmushogeschool.be/',
             'imgname' => 'ehb.jpg',
-            'img' => base64_encode(file_get_contents(storage_path('app/public/ehb.jpg')))
+            'img' => base64_encode(file_get_contents(storage_path('app/public/logos/ehb.jpg')))
         ]);
         $partner->save();
         $partner = new Partner([
@@ -37,7 +36,7 @@ class PartnerTableSeeder extends Seeder
             'level' => 'Gold',
             'website' => 'https://www.brussel.be/',
             'imgname' => 'bxl.jpg',
-            'img' => base64_encode(file_get_contents(storage_path('app/public/bxl.jpg')))
+            'img' => base64_encode(file_get_contents(storage_path('app/public/logos/bxl.jpg')))
         ]);
         $partner->save();
         $partner = new Partner([
@@ -46,7 +45,7 @@ class PartnerTableSeeder extends Seeder
             'level' => 'Silver',
             'website' => 'https://www.imec.be/',
             'imgname' => 'imec.png',
-            'img' => base64_encode(file_get_contents(storage_path('app/public/imec.png')))
+            'img' => base64_encode(file_get_contents(storage_path('app/public/logos/imec.png')))
         ]);
         $partner->save();
         $partner = new Partner([
@@ -55,7 +54,7 @@ class PartnerTableSeeder extends Seeder
             'level' => 'Silver',
             'website' => 'https://www.voka.be/',
             'imgname' => 'voka.jpeg',
-            'img' => base64_encode(file_get_contents(storage_path('app/public/voka.jpeg')))
+            'img' => base64_encode(file_get_contents(storage_path('app/public/logos/voka.jpeg')))
         ]);
         $partner->save();
         $partner = new Partner([
@@ -64,7 +63,7 @@ class PartnerTableSeeder extends Seeder
             'level' => 'Silver',
             'website' => 'https://www.meetdistrict.be/',
             'imgname' => 'meetdistrict.png',
-            'img' => base64_encode(file_get_contents(storage_path('app/public/meetdistrict.png')))
+            'img' => base64_encode(file_get_contents(storage_path('app/public/logos/meetdistrict.png')))
         ]);
         $partner->save();
         $partner = new Partner([
@@ -73,7 +72,7 @@ class PartnerTableSeeder extends Seeder
             'level' => 'Silver',
             'website' => 'https://cronos-groep.be/',
             'imgname' => 'cronos.png',
-            'img' => base64_encode(file_get_contents(storage_path('app/public/cronos.png')))
+            'img' => base64_encode(file_get_contents(storage_path('app/public/logos/cronos.png')))
         ]);
         $partner->save();
         $partner = new Partner([
@@ -82,7 +81,7 @@ class PartnerTableSeeder extends Seeder
             'level' => 'Silver',
             'website' => 'https://www.showpad.com/',
             'imgname' => 'showpad.png',
-            'img' => base64_encode(file_get_contents(storage_path('app/public/showpad.png')))
+            'img' => base64_encode(file_get_contents(storage_path('app/public/logos/showpad.png')))
         ]);
         $partner->save();
         $partner = new Partner([
@@ -91,7 +90,7 @@ class PartnerTableSeeder extends Seeder
             'level' => 'Bronze',
             'website' => 'https://www.ewi-vlaanderen.be/',
             'imgname' => 'economie.jpg',
-            'img' => base64_encode(file_get_contents(storage_path('app/public/economie.jpg')))
+            'img' => base64_encode(file_get_contents(storage_path('app/public/logos/economie.jpg')))
         ]);
         $partner->save();
         $partner = new Partner([
@@ -100,7 +99,7 @@ class PartnerTableSeeder extends Seeder
             'level' => 'Bronze',
             'website' => 'https://www.cegeka.be/',
             'imgname' => 'cegeka.png',
-            'img' => base64_encode(file_get_contents(storage_path('app/public/cegeka.png')))
+            'img' => base64_encode(file_get_contents(storage_path('app/public/logos/cegeka.png')))
         ]);
         $partner->save();
     }

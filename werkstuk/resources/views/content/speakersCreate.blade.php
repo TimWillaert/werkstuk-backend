@@ -20,6 +20,13 @@
             @endforeach
         </div>
         <div class="form-group">
+            <label>Profile picture</label>
+            <div class="custom-file mb-2">
+                <input type="file" class="custom-file-input" id="customFile" name="profilepic">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+        </div>
+        <div class="form-group">
             <label>Key images</label>
             <div class="custom-file mb-2">
                 <input type="file" class="custom-file-input" id="customFile" name="image1">

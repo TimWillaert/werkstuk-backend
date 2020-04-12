@@ -5,10 +5,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" href="{{route('sessions')}}">Sessions</a>
-        <a class="nav-item nav-link" href="{{route('speakers')}}">Speakers</span></a>
+        <a class="nav-item nav-link {{ Request::is('sessions') ? 'active' : '' }}" href="{{route('sessions')}}">Sessions</a>
+        <a class="nav-item nav-link {{ Request::is('speakers') ? 'active' : '' }}" href="{{route('speakers')}}">Speakers</span></a>
         <a class="nav-item nav-link" href="#">Timetable</a>
-        <a class="nav-item nav-link" href="{{route('partners')}}">Sponsors and Partners</a>
+        <a class="nav-item nav-link {{ Request::is('partners') ? 'active' : '' }}" href="{{route('partners')}}">Sponsors and Partners</a>
         <a class="nav-item nav-link" href="#">Tickets</a>
       </div>
     </div>

@@ -71,7 +71,7 @@ class PartnerTableSeeder extends Seeder
             'name' => 'Cronos Groep',
             'type' => 'Sponsor',
             'level' => 'Silver',
-            'website' => 'https://www.cronos.be/',
+            'website' => 'https://cronos-groep.be/',
             'imgname' => 'cronos.png',
             'img' => base64_encode(file_get_contents(storage_path('app/public/cronos.png')))
         ]);
@@ -80,7 +80,7 @@ class PartnerTableSeeder extends Seeder
             'name' => 'Showpad',
             'type' => 'Sponsor',
             'level' => 'Silver',
-            'website' => 'https://www.showpad.be/',
+            'website' => 'https://www.showpad.com/',
             'imgname' => 'showpad.png',
             'img' => base64_encode(file_get_contents(storage_path('app/public/showpad.png')))
         ]);

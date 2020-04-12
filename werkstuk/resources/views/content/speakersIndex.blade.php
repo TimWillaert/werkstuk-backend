@@ -1,5 +1,6 @@
 @extends('../layouts.master')
 @section('content')
+@include('../partials/successalert')
     <a href="{{route('speakers.create')}}" role="button" class="btn btn-primary">Add speaker</a>
     <hr>
     @foreach ($speakers as $speaker)

@@ -22,9 +22,14 @@
             <label for="website">Website</label>
             <input type="text" name="website" class="form-control" value="{{$speaker->website}}">
         </div>
-        @foreach ($speaker->images as $image)
-            <img src="data:image/png;base64, {{$image->src}}">
-        @endforeach
+        <div class="form-group">
+            <label>Key images</label>
+            @foreach ($speaker->images as $image)
+                <div>
+                    <img src="data:image/png;base64, {{$image->src}}" class="rounded" style="width: 100px; height: 100px;">
+                </div>
+            @endforeach
+        </div>
         @csrf
         <input type="hidden" value="{{$speaker->id}}" name="id">
         <button class="btn btn-primary" type="submit">Update</button>

@@ -74,3 +74,30 @@ Route::group(['prefix' => 'speakers'], function () {
         'as' => 'speakers.delete'
     ]);
 });
+
+Route::group(['prefix' => 'partners'], function () {
+    Route::get('', [
+        'uses' => 'PartnerController@getIndex',
+        'as' => 'partners'
+    ]);
+    Route::get('edit/{id}', [
+        'uses' => 'PartnerController@getEdit',
+        'as' => 'partners.edit'
+    ]);
+    Route::get('create', [
+        'uses' => 'PartnerController@getCreate',
+        'as' => 'partners.create'
+    ]);
+    Route::post('postCreate', [
+        'uses' => 'PartnerController@postCreate',
+        'as' => 'partners.postCreate'
+    ]);
+    Route::post('update', [
+        'uses' => 'PartnerController@postUpdate',
+        'as' => 'partners.update'
+    ]);
+    Route::get('delete/{id}', [
+        'uses' => 'PartnerController@getDelete',
+        'as' => 'partners.delete'
+    ]);
+});

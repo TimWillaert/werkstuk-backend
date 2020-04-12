@@ -8,7 +8,7 @@
         <a class="nav-item nav-link" href="{{route('sessions')}}">Sessions</a>
         <a class="nav-item nav-link" href="{{route('speakers')}}">Speakers</span></a>
         <a class="nav-item nav-link" href="#">Timetable</a>
-        <a class="nav-item nav-link" href="#">Sponsors and Partners</a>
+        <a class="nav-item nav-link" href="{{route('partners')}}">Sponsors and Partners</a>
         <a class="nav-item nav-link" href="#">Tickets</a>
       </div>
     </div>

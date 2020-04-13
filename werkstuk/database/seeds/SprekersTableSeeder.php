@@ -1,5 +1,6 @@
 <?php
 
+use App\Image;
 use App\Spreker;
 use Illuminate\Database\Seeder;
 
@@ -20,15 +21,45 @@ class SprekersTableSeeder extends Seeder
             'profilepic' => base64_encode(file_get_contents(storage_path('app/public/profilepics/driesdepoorter.png')))
         ]);
         $spreker->save();
+        $img = new Image([
+            'name' => 'driesdepoorter1.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/driesdepoorter1.jpg')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'driesdepoorter2.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/driesdepoorter2.jpg')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'driesdepoorter3.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/driesdepoorter3.jpg')))
+        ]);
+        $spreker->images()->save($img);
 
         $spreker = new Spreker([
             'name' => 'Es Devlin',
-            'description' => 'ES DEVLIN IS AN ARTIST AND STAGE DESIGNER. SHE IS KNOWN FOR CREATING LARGE-SCALE PERFORMATIVE SCULPTURES AND ENVIRONMENTS THAT FUSE MUSIC, LANGUAGE AND LIGHT. DEVLIN HAS CONCEIVED TOURING STAGE SCULPTURES FOR BEYONCÉ, U2, ADELE, THE WEEKND AND KANYE WEST AS WELL AS TWO DECADES OF OPERA, DRAMA AND DANCE WORLDWIDE.',
+            'description' => 'Es Devlin is an artist and stage designer. She is known for creating large-scale performative sculptures and environments that fuse music, language and light. Devlin has conceived touring stage sculptures for Beyoncé, U2, Adele, The Weeknd and Kanye West as well as two decades of opera, drama and dance worldwide.',
             'website' => 'https://esdevlin.com/',
             'profilepicname' => 'esdevlin.jpg',
             'profilepic' => base64_encode(file_get_contents(storage_path('app/public/profilepics/esdevlin.jpg')))
         ]);
         $spreker->save();
+        $img = new Image([
+            'name' => 'esdevlin1.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/esdevlin1.jpg')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'esdevlin2.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/esdevlin2.jpg')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'esdevlin3.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/esdevlin3.jpg')))
+        ]);
+        $spreker->images()->save($img);
 
         $spreker = new Spreker([
             'name' => 'Neil Harbisson',
@@ -38,6 +69,21 @@ class SprekersTableSeeder extends Seeder
             'profilepic' => base64_encode(file_get_contents(storage_path('app/public/profilepics/neilharbisson.jpg')))
         ]);
         $spreker->save();
+        $img = new Image([
+            'name' => 'neilharbisson1.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/neilharbisson1.jpg')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'neilharbisson2.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/neilharbisson2.jpg')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'neilharbisson3.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/neilharbisson3.jpg')))
+        ]);
+        $spreker->images()->save($img);
 
         $spreker = new Spreker([
             'name' => 'Stefan Sagmeister',
@@ -47,6 +93,21 @@ class SprekersTableSeeder extends Seeder
             'profilepic' => base64_encode(file_get_contents(storage_path('app/public/profilepics/stefansagmeister.jpg')))
         ]);
         $spreker->save();
+        $img = new Image([
+            'name' => 'stefansagmeister1.png',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/stefansagmeister1.png')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'stefansagmeister2.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/stefansagmeister2.jpg')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'stefansagmeister3.png',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/stefansagmeister3.png')))
+        ]);
+        $spreker->images()->save($img);
 
         $spreker = new Spreker([
             'name' => 'Neil Mendoza',
@@ -56,6 +117,21 @@ class SprekersTableSeeder extends Seeder
             'profilepic' => base64_encode(file_get_contents(storage_path('app/public/profilepics/neilmendoza.png')))
         ]);
         $spreker->save();
+        $img = new Image([
+            'name' => 'neilmendoza1.jpeg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/neilmendoza1.jpeg')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'neilmendoza2.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/neilmendoza2.jpg')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'neilmendoza3.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/neilmendoza3.jpg')))
+        ]);
+        $spreker->images()->save($img);
 
         $spreker = new Spreker([
             'name' => 'Daan Roosegaarde',
@@ -65,6 +141,21 @@ class SprekersTableSeeder extends Seeder
             'profilepic' => base64_encode(file_get_contents(storage_path('app/public/profilepics/daanroosegaarde.jpg')))
         ]);
         $spreker->save();
+        $img = new Image([
+            'name' => 'daanroosegaarde1.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/daanroosegaarde1.jpg')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'daanroosegaarde2.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/daanroosegaarde2.jpg')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'daanroosegaarde3.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/daanroosegaarde3.jpg')))
+        ]);
+        $spreker->images()->save($img);
 
         $spreker = new Spreker([
             'name' => 'Seth Godin',
@@ -74,5 +165,20 @@ class SprekersTableSeeder extends Seeder
             'profilepic' => base64_encode(file_get_contents(storage_path('app/public/profilepics/sethgodin.jpeg')))
         ]);
         $spreker->save();
+        $img = new Image([
+            'name' => 'sethgodin1.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/sethgodin1.jpg')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'sethgodin2.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/sethgodin2.jpg')))
+        ]);
+        $spreker->images()->save($img);
+        $img = new Image([
+            'name' => 'sethgodin3.jpg',
+            'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/sethgodin3.jpg')))
+        ]);
+        $spreker->images()->save($img);
     }
 }

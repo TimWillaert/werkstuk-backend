@@ -13,7 +13,7 @@ class SprekerController extends Controller
 {
 
     public function getIndex(){
-        $speakers = Spreker::orderBy('name', 'asc')->with('sessions')->paginate(3);
+        $speakers = Spreker::orderBy('name', 'asc')->with('sessions')->paginate(4);
         return view('content.speakersIndex', ['speakers' => $speakers]);
     }
 

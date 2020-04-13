@@ -1,5 +1,7 @@
 @extends('../layouts.master')
 @section('content')
+    <h5>Editing speaker</h5>
+    <hr>
     <form method="POST" action="{{route('speakers.update')}}" class="mb-5" enctype="multipart/form-data">
         <div class="form-group">
             <label for="name">Name</label>

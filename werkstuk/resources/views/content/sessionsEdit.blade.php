@@ -1,6 +1,8 @@
 @extends('../layouts.master')
 @section('content')
 @include('../partials/erroralert')
+    <h5>Editing session</h5>
+    <hr>
     <form method="POST" action="{{route('sessions.update')}}" class="mb-5">
         <div class="form-group">
             <label for="title">Title</label>

@@ -1,6 +1,8 @@
 @extends('../layouts.master')
 @section('content')
 @include('../partials/erroralert')
+    <h5>Creating speaker</h5>
+    <hr>
     <form method="POST" action="{{route('speakers.postCreate')}}" class="mb-5" enctype="multipart/form-data">
         <div class="form-group">
             <label for="name">Name</label>

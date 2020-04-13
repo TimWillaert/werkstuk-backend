@@ -10,7 +10,7 @@ use Illuminate\Validation\Factory;
 class SessieController extends Controller
 {
     public function getIndex(){
-        $sessions = Sessie::orderBy('time_start', 'asc')->with('spreker')->paginate(3);
+        $sessions = Sessie::orderBy('time_start', 'asc')->with('spreker')->paginate(4);
         return view('content.sessionsIndex', ['sessions' => $sessions]);
     }
 

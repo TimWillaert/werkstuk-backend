@@ -1,6 +1,8 @@
 @extends('../layouts.master')
 @section('content')
 @include('../partials/erroralert')
+    <h5>Editing ticket</h5>
+    <hr>
     <form method="POST" action="{{route('tickets.update')}}" class="mb-5">
         <div class="form-group">
             <label for="name">Name</label>

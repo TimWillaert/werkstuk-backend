@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{$session->title}}</h5>
                 <hr>
-                <h6 class="text-muted">By {{$session->spreker->name}} - {{$session->time_start}} to {{$session->time_end}} - {{$session->location}}</h6>
+                <h6 class="text-muted">By <img class="d-inline m-1 rounded" src="data:image/png;base64, {{$session->spreker->profilepic}}" style="width: 30px; height: 30px; object-fit: cover;"> {{$session->spreker->name}} - {{$session->time_start}} to {{$session->time_end}} - {{$session->location}}</h6>
                 <div class="mt-4">
                     <a href="{{route('sessions.edit', ['id' => $session->id])}}" class="btn btn-info">Edit</a>
                     <a href="{{route('sessions.delete', ['id' => $session->id])}}" class="btn btn-danger">Delete</a>

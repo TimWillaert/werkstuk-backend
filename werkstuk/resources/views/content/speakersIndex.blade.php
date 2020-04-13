@@ -9,6 +9,10 @@
             <img class="d-inline mr-2" src="data:image/png;base64, {{$speaker->profilepic}}" style="width: 40px; height: 40px; border-radius: 50px; object-fit: cover;">
             <h5 class="card-title d-inline">{{$speaker->name}}</h5>
             <hr>
+                @foreach ($speaker->keywords as $keyword)
+                    <span class="badge badge-light">{{$keyword->name}}</span>
+                @endforeach
+            <hr>
             @if (count($speaker->sessions)>0)
                 @foreach ($speaker->sessions as $session)
             <h6 class="text-muted">{{$session->title}} - {{$session->time_start}} to {{$session->time_end}}</h6>

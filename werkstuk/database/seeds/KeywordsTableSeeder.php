@@ -30,15 +30,39 @@ class KeywordsTableSeeder extends Seeder
         ]);
         $keyword->save();
         $keyword = new Keyword([
-            'name' => 'Abstract'
+            'name' => 'Social Design'
         ]);
         $keyword->save();
         $keyword = new Keyword([
-            'name' => 'Prize Winner'
+            'name' => 'Disruptive Design'
         ]);
         $keyword->save();
         $keyword = new Keyword([
             'name' => 'Stage Designer'
+        ]);
+        $keyword->save();
+        $keyword = new Keyword([
+            'name' => 'Cyborg'
+        ]);
+        $keyword->save();
+        $keyword = new Keyword([
+            'name' => 'Electronics'
+        ]);
+        $keyword->save();
+        $keyword = new Keyword([
+            'name' => 'Entrepreneur'
+        ]);
+        $keyword->save();
+        $keyword = new Keyword([
+            'name' => 'Author'
+        ]);
+        $keyword->save();
+        $keyword = new Keyword([
+            'name' => 'Graphic Design'
+        ]);
+        $keyword->save();
+        $keyword = new Keyword([
+            'name' => 'Typography'
         ]);
         $keyword->save();
 

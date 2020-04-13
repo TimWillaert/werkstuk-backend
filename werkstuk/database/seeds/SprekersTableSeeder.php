@@ -36,6 +36,7 @@ class SprekersTableSeeder extends Seeder
             'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/driesdepoorter3.jpg')))
         ]);
         $spreker->images()->save($img);
+        $spreker->keywords()->sync([1, 2, 9]);
 
         $spreker = new Spreker([
             'name' => 'Es Devlin',
@@ -60,6 +61,7 @@ class SprekersTableSeeder extends Seeder
             'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/esdevlin3.jpg')))
         ]);
         $spreker->images()->save($img);
+        $spreker->keywords()->sync([1, 2, 7]);
 
         $spreker = new Spreker([
             'name' => 'Neil Harbisson',
@@ -84,6 +86,7 @@ class SprekersTableSeeder extends Seeder
             'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/neilharbisson3.jpg')))
         ]);
         $spreker->images()->save($img);
+        $spreker->keywords()->sync([8, 9, 11]);
 
         $spreker = new Spreker([
             'name' => 'Stefan Sagmeister',
@@ -108,6 +111,7 @@ class SprekersTableSeeder extends Seeder
             'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/stefansagmeister3.png')))
         ]);
         $spreker->images()->save($img);
+        $spreker->keywords()->sync([12, 13, 11]);
 
         $spreker = new Spreker([
             'name' => 'Neil Mendoza',
@@ -132,6 +136,7 @@ class SprekersTableSeeder extends Seeder
             'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/neilmendoza3.jpg')))
         ]);
         $spreker->images()->save($img);
+        $spreker->keywords()->sync([7, 4, 9]);
 
         $spreker = new Spreker([
             'name' => 'Daan Roosegaarde',
@@ -156,6 +161,7 @@ class SprekersTableSeeder extends Seeder
             'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/daanroosegaarde3.jpg')))
         ]);
         $spreker->images()->save($img);
+        $spreker->keywords()->sync([5, 1, 3]);
 
         $spreker = new Spreker([
             'name' => 'Seth Godin',
@@ -180,5 +186,6 @@ class SprekersTableSeeder extends Seeder
             'src' => base64_encode(file_get_contents(storage_path('app/public/keyimages/sethgodin3.jpg')))
         ]);
         $spreker->images()->save($img);
+        $spreker->keywords()->sync([4, 2, 11]);
     }
 }

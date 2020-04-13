@@ -7,7 +7,7 @@
       <div class="navbar-nav">
         <a class="nav-item nav-link {{ Request::is('sessions') ? 'active' : '' }}" href="{{route('sessions')}}">Sessions</a>
         <a class="nav-item nav-link {{ Request::is('speakers') ? 'active' : '' }}" href="{{route('speakers')}}">Speakers</span></a>
-        <a class="nav-item nav-link" href="#">Timetable</a>
+        <a class="nav-item nav-link {{ Request::is('timetable') ? 'active' : '' }}" href="{{route('timetable')}}">Timetable</a>
         <a class="nav-item nav-link {{ Request::is('partners') ? 'active' : '' }}" href="{{route('partners')}}">Sponsors and Partners</a>
         <a class="nav-item nav-link {{ Request::is('tickets') ? 'active' : '' }}" href="{{route('tickets')}}">Tickets</a>
       </div>

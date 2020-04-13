@@ -9,8 +9,10 @@
 </head>
 
 <body>
-    <div class="container mt-5 mb-5" style="min-height: 70vh;">
+
+    <div style="max-width: 100vw; overflow: hidden;">
         @yield('content')
+        @include('../partials/footerpartial')
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

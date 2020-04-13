@@ -1,4 +1,4 @@
-@if (session('added'))
+    @if (session('added'))
         <div class="alert alert-success alert-dismissable fade show" role="alert">
             Added: <b>{{session('added')}}</b>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -19,4 +19,13 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
+    @elseif (session('timetable'))
+        @foreach (session('timetable') as $updated)
+            <div class="alert alert-success alert-dismissable fade show" role="alert">
+                Updated: <b>{{$updated}}</b>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endforeach
     @endif

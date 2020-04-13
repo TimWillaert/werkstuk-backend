@@ -93,4 +93,34 @@ class SessieController extends Controller
             return redirect()->action('SessieController@getIndex')->with('added', $session->title);
         }
     }
+
+    public function getTimetable(){
+        $sessions = Sessie::orderBy('time_start', 'asc')->with('spreker')->get();
+        return view('content.timetable', ['sessions' => $sessions]);
+    }
+
+    public function postUpdateTimetable(Request $request, Factory $validator){
+        $validation = $validator->make($request->all(), [
+            'start.*' => 'required',
+            'end.*' => 'required'
+        ]);
+
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation);
+        } else{
+            $sessions = Sessie::orderBy('time_start', 'asc')->with('spreker')->get();
+            $start = $request->input('start');
+            $end = $request->input('end');
+            $changed = array();
+            for($i = 0; $i < count($start); $i++){
+                if($sessions[$i]->time_start != $start[$i] || $sessions[$i]->time_end != $end[$i]){
+                    $sessions[$i]->time_start = $start[$i];
+                    $sessions[$i]->time_end = $end[$i];
+                    $sessions[$i]->save();
+                    $changed[$i] = $sessions[$i]->title;
+                }
+            }
+            return redirect()->action('SessieController@getTimetable')->with('timetable', $changed);
+        }
+    }
 }

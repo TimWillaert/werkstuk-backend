@@ -28,6 +28,17 @@ Route::group(['middleware' => ['auth']], function() {
         return view('other.about');
     })->name('about');
 
+    Route::group(['prefix' => 'timetable'], function(){
+        Route::get('', [
+            'uses' => 'SessieController@getTimetable',
+            'as' => 'timetable'
+        ]);
+        Route::post('update', [
+            'uses' => 'SessieController@postUpdateTimetable',
+            'as' => 'timetable.update'
+        ]);
+    });
+
     Route::group(['prefix' => 'sessions'], function () {
         Route::get('', [
             'uses' => 'SessieController@getIndex',

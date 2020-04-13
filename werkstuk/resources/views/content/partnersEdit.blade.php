@@ -43,7 +43,7 @@
         </div>
         @csrf
         <input type="hidden" value="{{$partner->id}}" name="id">
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit">Update</button>
         <a href="{{route('partners')}}" class="btn btn-outline-primary">Cancel</a>
     </form>
 

@@ -101,3 +101,30 @@ Route::group(['prefix' => 'partners'], function () {
         'as' => 'partners.delete'
     ]);
 });
+
+Route::group(['prefix' => 'tickets'], function () {
+    Route::get('', [
+        'uses' => 'TicketController@getIndex',
+        'as' => 'tickets'
+    ]);
+    Route::get('edit/{id}', [
+        'uses' => 'TicketController@getEdit',
+        'as' => 'tickets.edit'
+    ]);
+    Route::get('create', [
+        'uses' => 'TicketController@getCreate',
+        'as' => 'tickets.create'
+    ]);
+    Route::post('postCreate', [
+        'uses' => 'TicketController@postCreate',
+        'as' => 'tickets.postCreate'
+    ]);
+    Route::post('update', [
+        'uses' => 'TicketController@postUpdate',
+        'as' => 'tickets.update'
+    ]);
+    Route::get('delete/{id}', [
+        'uses' => 'TicketController@getDelete',
+        'as' => 'tickets.delete'
+    ]);
+});

@@ -118,6 +118,7 @@ class SprekerController extends Controller
         $validation = $validator->make($request->all(), [
             'name' => 'required',
             'description' => 'required',
+            'profilepic' => 'required|file|mimes:jpg,jpeg,png',
             'image1' => 'required|file|mimes:jpg,jpeg,png',
             'image2' => 'required|file|mimes:jpg,jpeg,png',
             'image3' => 'required|file|mimes:jpg,jpeg,png',

@@ -21,6 +21,9 @@
                 </div>
             @endforeach
         </div>
+        <div class="pb-3">
+            <a href="{{route('keywords.create')}}" target="_blank">Add keyword</a>
+        </div>
         <div class="form-group">
             <label>Profile picture</label>
             <div class="custom-file mb-2">

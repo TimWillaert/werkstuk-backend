@@ -22,6 +22,7 @@
                     <li><a href="https://stackoverflow.com/questions/16597392/how-do-you-get-the-path-to-the-laravel-storage-folder" target="_blank">Get path to storage folder</a></li>
                     <li><a href="https://stackoverflow.com/questions/40587546/how-to-highlight-current-page-with-bootstrap-in-laravel-5-2" target="_blank">Highlight current page with Bootstrap</a></li>
                     <li><a href="https://stackoverflow.com/questions/31114918/laravel-5-dbseed-the-username-and-password-but-not-authenticating-on-login" target="_blank">Encrypt seeded user password</a></li>
+                    <li><a href="https://stackoverflow.com/questions/3654295/remove-empty-array-elements" target="_blank">Remove empty values from array</a></li>
                 </ul>
             </li>
         </ul>

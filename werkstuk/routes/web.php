@@ -93,6 +93,29 @@ Route::group(['middleware' => ['auth']], function() {
         ]);
     });
 
+    Route::group(['prefix' => 'keywords'], function(){
+        Route::get('', [
+            'uses' => 'KeywordController@getIndex',
+            'as' => 'keywords'
+        ]);
+        Route::get('create', [
+            'uses' => 'KeywordController@getCreate',
+            'as' => 'keywords.create'
+        ]);
+        Route::post('update', [
+            'uses' => 'KeywordController@postUpdate',
+            'as' => 'keywords.postUpdate'
+        ]);
+        Route::post('postCreate', [
+            'uses' => 'KeywordController@postCreate',
+            'as' => 'keywords.postCreate'
+        ]);
+        Route::get('delete/{id}', [
+            'uses' => 'KeywordController@getDelete',
+            'as' => 'keywords.delete'
+        ]);
+    });
+
     Route::group(['prefix' => 'partners'], function () {
         Route::get('', [
             'uses' => 'PartnerController@getIndex',

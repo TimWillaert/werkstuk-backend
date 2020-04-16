@@ -20,6 +20,9 @@
                 </div>
             @endforeach
         </div>
+        <div class="pb-3">
+            <a href="{{route('keywords.create')}}" target="_blank">Add keyword</a>
+        </div>
         <div class="form-group">
             <label for="website">Website</label>
             <input type="text" name="website" class="form-control" value="{{$speaker->website}}">

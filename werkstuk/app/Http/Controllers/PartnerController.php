@@ -9,6 +9,7 @@ use Illuminate\Validation\Factory;
 class PartnerController extends Controller
 {
     public function getIndex(){
+        $this->authorize('access-partners');
         $goldpartners = Partner::where('level', 'Gold')->orderBy('name', 'asc')->get();
         $silverpartners = Partner::where('level', 'Silver')->orderBy('name', 'asc')->get();
         $bronzepartners = Partner::where('level', 'Bronze')->orderBy('name', 'asc')->get();
@@ -16,11 +17,13 @@ class PartnerController extends Controller
     }
 
     public function getEdit($id){
+        $this->authorize('access-partners');
         $partner = Partner::find($id);
         return view('content.partnersEdit', ['partner' => $partner]);
     }
 
     public function postUpdate(Request $request, Factory $validator){
+        $this->authorize('access-partners');
         $validation = $validator->make($request->all(), [
             'name' => 'required',
             'website' => 'required|url'
@@ -50,6 +53,7 @@ class PartnerController extends Controller
     }
 
     public function getDelete($id){
+        $this->authorize('access-partners');
         $partner = Partner::find($id);
         $partner->delete();
 
@@ -57,10 +61,12 @@ class PartnerController extends Controller
    }
 
     public function getCreate(){
+        $this->authorize('access-partners');
         return view('content.partnersCreate');
     }
 
     public function postCreate(Request $request, Factory $validator){
+        $this->authorize('access-partners');
         $validation = $validator->make($request->all(), [
             'name' => 'required',
             'logo' => 'required|file|mimes:jpg,jpeg,png',

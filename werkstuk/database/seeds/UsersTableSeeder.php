@@ -13,10 +13,27 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $admin = new User([
-            'name' => 'admin',
+            'name' => 'Admin',
             'email' => 'admin@dotspix.be',
-            'password' => bcrypt('123456')
+            'password' => bcrypt('123456'),
+            'role' => 'Admin'
         ]);
         $admin->save();
+
+        $planner = new User([
+            'name' => 'Planner',
+            'email' => 'planner@dotspix.be',
+            'password' => bcrypt('123456'),
+            'role' => 'Planner'
+        ]);
+        $planner->save();
+
+        $finance = new User([
+            'name' => 'Finance',
+            'email' => 'finance@dotspix.be',
+            'password' => bcrypt('123456'),
+            'role' => 'Finance'
+        ]);
+        $finance->save();
     }
 }

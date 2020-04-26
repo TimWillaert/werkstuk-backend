@@ -9,16 +9,19 @@ use Illuminate\Validation\Factory;
 class TicketController extends Controller
 {
     public function getIndex(){
+        $this->authorize('access-tickets');
         $tickets = Ticket::all();
         return view('content.ticketsIndex', ['tickets' => $tickets]);
     }
 
     public function getEdit($id){
+        $this->authorize('access-tickets');
         $ticket = Ticket::find($id);
         return view('content.ticketsEdit', ['ticket' => $ticket]);
     }
 
     public function postUpdate(Request $request, Factory $validator){
+        $this->authorize('access-tickets');
         $validation = $validator->make($request->all(), [
             'name' => 'required',
             'description' => 'required',
@@ -43,16 +46,19 @@ class TicketController extends Controller
     }
 
     public function getDelete($id){
+        $this->authorize('access-tickets');
         $ticket = Ticket::find($id);
         $ticket->delete();
         return redirect()->action('TicketController@getIndex')->with('deleted', $ticket->name);
     }
 
     public function getCreate(){
+        $this->authorize('access-tickets');
         return view('content.ticketsCreate');
     }
 
     public function postCreate(Request $request, Factory $validator){
+        $this->authorize('access-tickets');
         $validation = $validator->make($request->all(), [
             'name' => 'required',
             'description' => 'required',

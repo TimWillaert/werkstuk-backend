@@ -28,4 +28,11 @@
                 </button>
             </div>
         @endforeach
+    @elseif(session('error'))
+        <div class="alert alert-danger alert-dismissable fade show" role="alert">
+            Error: <b>{{session('error')}}</b>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     @endif

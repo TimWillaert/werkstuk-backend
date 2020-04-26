@@ -10,11 +10,13 @@ use Illuminate\Validation\Factory;
 class SessieController extends Controller
 {
     public function getIndex(){
+        $this->authorize('access-sessions');
         $sessions = Sessie::orderBy('time_start', 'asc')->with('spreker')->paginate(4);
         return view('content.sessionsIndex', ['sessions' => $sessions]);
     }
 
     public function getEdit($id){
+        $this->authorize('access-sessions');
         $session = Sessie::where('id', $id)->with('spreker')->first();
         $speakers = Spreker::all();
 
@@ -22,6 +24,7 @@ class SessieController extends Controller
     }
 
     public function postUpdate(Request $request, Factory $validator){
+        $this->authorize('access-sessions');
         $validation = $validator->make($request->all(), [
             'title' => 'required',
             'description' => 'required',
@@ -54,6 +57,7 @@ class SessieController extends Controller
     }
 
     public function getDelete($id){
+        $this->authorize('access-sessions');
         $session = Sessie::find($id);
         $session->delete();
 
@@ -61,11 +65,13 @@ class SessieController extends Controller
    }
 
     public function getCreate(){
+        $this->authorize('access-sessions');
         $speakers = Spreker::all();
         return view('content.sessionsCreate', ['speakers' => $speakers]);
     }
 
     public function postCreate(Request $request, Factory $validator){
+        $this->authorize('access-sessions');
         $validation = $validator->make($request->all(), [
             'title' => 'required',
             'description' => 'required',
@@ -95,11 +101,13 @@ class SessieController extends Controller
     }
 
     public function getTimetable(){
+        $this->authorize('access-timetable');
         $sessions = Sessie::orderBy('time_start', 'asc')->with('spreker')->get();
         return view('content.timetable', ['sessions' => $sessions]);
     }
 
     public function postUpdateTimetable(Request $request, Factory $validator){
+        $this->authorize('access-timetable');
         $validation = $validator->make($request->all(), [
             'start.*' => 'required',
             'end.*' => 'required'

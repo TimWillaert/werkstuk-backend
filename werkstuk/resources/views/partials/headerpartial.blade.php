@@ -5,14 +5,31 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link {{ Request::is('sessions') ? 'active' : '' }}" href="{{route('sessions')}}">Sessions</a>
-        <a class="nav-item nav-link {{ Request::is('speakers') ? 'active' : '' }}" href="{{route('speakers')}}">Speakers</a>
-        <a class="nav-item nav-link {{ Request::is('keywords') ? 'active' : '' }}" href="{{route('keywords')}}">Keywords</a>
-        <a class="nav-item nav-link {{ Request::is('timetable') ? 'active' : '' }}" href="{{route('timetable')}}">Timetable</a>
-        <a class="nav-item nav-link {{ Request::is('partners') ? 'active' : '' }}" href="{{route('partners')}}">Sponsors and Partners</a>
-        <a class="nav-item nav-link {{ Request::is('tickets') ? 'active' : '' }}" href="{{route('tickets')}}">Tickets</a>
+        @can('access-sessions')
+            <a class="nav-item nav-link {{ Request::is('sessions') ? 'active' : '' }}" href="{{route('sessions')}}">Sessions</a>
+        @endcan
+        @can('access-speakers')
+            <a class="nav-item nav-link {{ Request::is('speakers') ? 'active' : '' }}" href="{{route('speakers')}}">Speakers</a>
+        @endcan
+        @can('access-keywords')
+            <a class="nav-item nav-link {{ Request::is('keywords') ? 'active' : '' }}" href="{{route('keywords')}}">Keywords</a>
+        @endcan
+        @can('access-timetable')
+            <a class="nav-item nav-link {{ Request::is('timetable') ? 'active' : '' }}" href="{{route('timetable')}}">Timetable</a>
+        @endcan
+        @can('access-partners')
+            <a class="nav-item nav-link {{ Request::is('partners') ? 'active' : '' }}" href="{{route('partners')}}">Sponsors and Partners</a>
+        @endcan
+        @can('access-tickets')
+            <a class="nav-item nav-link {{ Request::is('tickets') ? 'active' : '' }}" href="{{route('tickets')}}">Tickets</a>
+        @endcan
       </div>
       <div class="navbar-nav ml-auto">
+        <div class="navbar-nav">
+            @can('access-users')
+                <a class="nav-item nav-link {{ Request::is('users') ? 'active' : '' }}" href="{{route('users')}}">User Management</a>
+            @endcan
+        </div>
         <div class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }} <span class="caret"></span>

@@ -10,16 +10,19 @@ use Illuminate\Validation\Factory;
 class KeywordController extends Controller
 {
     public function getIndex(){
+        $this->authorize('access-keywords');
         $keywords = Keyword::all();
         return view('content.keywordsIndex', ['keywords' => $keywords]);
     }
 
     public function getCreate(){
+        $this->authorize('access-keywords');
         $speakers = Spreker::all();
         return view('content.keywordsCreate', ['speakers' => $speakers]);
     }
 
     public function postUpdate(Request $request, Factory $validator){
+        $this->authorize('access-keywords');
         $validation = $validator->make($request->all(), [
             'name' => 'required'
         ]);
@@ -35,6 +38,7 @@ class KeywordController extends Controller
     }
 
     public function getDelete($id){
+        $this->authorize('access-keywords');
         $keyword = Keyword::find($id);
         $keyword->sprekers()->detach();
         $keyword->delete();
@@ -42,6 +46,7 @@ class KeywordController extends Controller
     }
 
     public function postCreate(Request $request, Factory $validator){
+        $this->authorize('access-keywords');
         $validation = $validator->make($request->all(), [
             'name' => 'required|unique:App\Keyword,name',
             'speakers.*' => 'distinct'

@@ -2,7 +2,7 @@
 @section('content')
 <div id="background" style="height: 83vh; width: 100%;">
     <div class="d-flex justify-content-center align-items-center" style="height: 100%">
-        <img src="../storage/app/public/dots&pixlogo.png" style="height: 150px">
+        <img src="{{url('/dots&pixlogo.png')}}" style="height: 150px">
     </div>
 </div>
 

@@ -13,11 +13,13 @@ class SprekerController extends Controller
 {
 
     public function getIndex(){
+        $this->authorize('access-speakers');
         $speakers = Spreker::orderBy('name', 'asc')->with('sessions')->paginate(4);
         return view('content.speakersIndex', ['speakers' => $speakers]);
     }
 
     public function getEdit($id){
+        $this->authorize('access-speakers');
         $speaker = Spreker::where('id', $id)->with('images')->first();
         $keywords = Keyword::all();
 
@@ -25,6 +27,7 @@ class SprekerController extends Controller
     }
 
     public function postUpdate(Request $request, Factory $validator){
+        $this->authorize('access-speakers');
         $validation = $validator->make($request->all(), [
             'name' => 'required',
             'description' => 'required',
@@ -101,6 +104,7 @@ class SprekerController extends Controller
     }
 
     public function getDelete($id){
+        $this->authorize('access-speakers');
          $speaker = Spreker::find($id);
          $speaker->images()->delete();
          $speaker->keywords()->detach();
@@ -110,11 +114,13 @@ class SprekerController extends Controller
     }
 
     public function getCreate(){
+        $this->authorize('access-speakers');
         $keywords = Keyword::all();
         return view('content.speakersCreate', ['keywords' => $keywords]);
     }
 
     public function postCreate(Request $request, Factory $validator){
+        $this->authorize('access-speakers');
         $validation = $validator->make($request->all(), [
             'name' => 'required',
             'description' => 'required',

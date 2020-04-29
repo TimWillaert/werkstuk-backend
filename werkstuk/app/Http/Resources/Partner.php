@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Spreker extends JsonResource
+class Partner extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,9 +17,10 @@ class Spreker extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'description' => $this->description,
+            'type' => $this->type,
+            'level' => $this->level,
             'website' => $this->website,
-            'profilepic' => $this->profilepic
+            'img' => $this->img
         ];
     }
 }

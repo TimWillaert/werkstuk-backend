@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Spreker;
-use Validator;
 use App\Http\Resources\Spreker as SprekerResource;
 
 class SprekerController extends BaseController

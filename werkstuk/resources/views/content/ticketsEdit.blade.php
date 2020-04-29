@@ -25,8 +25,8 @@
                 <div class="col">
                     <label for="open">Registrations open</label>
                     <select name="open" class="form-control">
-                        <option value="1" {{$ticket->open === '1' ? 'selected' : ''}}>True</option>
-                        <option value="0" {{$ticket->open === '0' ? 'selected' : ''}}>False</option>
+                        <option value="1" {{$ticket->open === 1 ? 'selected' : ''}}>True</option>
+                        <option value="0" {{$ticket->open === 0 ? 'selected' : ''}}>False</option>
                     </select>
                 </div>
             </div>

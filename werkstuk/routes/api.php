@@ -14,8 +14,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'api/v1'], function () {
-    Route::resource('speaker', 'API\SprekerController', [
-        'only' => ['index']
-    ]);
-});
+Route::get('speakers', [
+    'uses' => 'API\SprekerController@index'
+]);
+
+Route::get('speakers/{id}', [
+    'uses' => 'API\SprekerController@show'
+]);
+
+Route::get('partners', [
+    'uses' => 'API\PartnerController@index'
+]);
+
+Route::get('partners/{id}', [
+    'uses' => 'API\PartnerController@show'
+]);
+
+Route::get('sessions', [
+    'uses' => 'API\SessieController@index'
+]);
+
+Route::get('sessions/{id}', [
+    'uses' => 'API\SessieController@show'
+]);
+
+Route::get('tickets', [
+    'uses' => 'API\TicketController@index'
+]);

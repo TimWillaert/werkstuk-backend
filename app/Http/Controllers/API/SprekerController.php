@@ -51,7 +51,7 @@ class SprekerController extends BaseController
      */
     public function show($id)
     {
-        $speaker = Spreker::find($id);
+        $speaker = Spreker::where('id', $id)->with('images')->first();
 
         if (is_null($speaker)) {
             return $this->sendError('Speaker not found.');

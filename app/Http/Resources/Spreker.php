@@ -18,8 +18,18 @@ class Spreker extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
+            'keywords' => [
+                'keyword1' => $this->keywords[0]->name,
+                'keyword2' => $this->keywords[1]->name,
+                'keyword3' => $this->keywords[2]->name
+            ],
             'website' => $this->website,
-            'profilepic' => $this->profilepic
+            'profilepic' => $this->profilepic,
+            'keyimages' => [
+                'keyimage1' => $this->images[0]->src,
+                'keyimage2' => $this->images[1]->src,
+                'keyimage3' => $this->images[2]->src,
+            ]
         ];
     }
 }

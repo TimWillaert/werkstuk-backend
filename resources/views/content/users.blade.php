@@ -16,6 +16,7 @@
                             <option value="Admin" selected>Admin</option>
                             <option value="Planner">Planner</option>
                             <option value="Finance">Finance</option>
+                            <option value="User">User</option>
                         </select>
                         <hr>
                         @csrf
@@ -41,6 +42,7 @@
                             <option value="Admin">Admin</option>
                             <option value="Planner" selected>Planner</option>
                             <option value="Finance">Finance</option>
+                            <option value="User">User</option>
                         </select>
                         <hr>
                         @csrf
@@ -66,10 +68,37 @@
                             <option value="Admin">Admin</option>
                             <option value="Planner">Planner</option>
                             <option value="Finance" selected>Finance</option>
+                            <option value="User">User</option>
                         </select>
                         <hr>
                         @csrf
                         <input type="hidden" name="id" value="{{$finance->id}}">
+                        <button type="submit" class="btn btn-primary">Update role</button>
+                    </form>
+                </div>
+            </div>
+        @endforeach
+    </div>
+    <h3 class="mb-3">Users</h3>
+    <hr>
+    <div class="card-columns mb-5">
+        @foreach ($users as $user)
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{$user->name}}</h5>
+                    <h6 class="card-subtitle text-muted">{{$user->email}}</h6>
+                    <hr>
+                    <form action="{{route('users.update')}}" method="POST">
+                        <h6 class="text-muted">Role</h6>
+                        <select name="role" class="form-control">
+                            <option value="Admin">Admin</option>
+                            <option value="Planner">Planner</option>
+                            <option value="Finance">Finance</option>
+                            <option value="User" selected>User</option>
+                        </select>
+                        <hr>
+                        @csrf
+                        <input type="hidden" name="id" value="{{$user->id}}">
                         <button type="submit" class="btn btn-primary">Update role</button>
                     </form>
                 </div>

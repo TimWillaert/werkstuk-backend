@@ -9,7 +9,7 @@
     </div>
 
     <div class="mb-5" style="padding-top: 270px; margin-left: 15%;">
-        <h5>Used resources</h5>
+        <h5>Used (re)sources</h5>
         <ul>
             <li>Lines visual: <a href="https://www.vantajs.com/?effect=net" target="_blank">https://www.vantajs.com/?effect=net</a></li>
             <li>Bootstrap custom input file name: <a href="https://github.com/Johann-S/bs-custom-file-input" target="_blank">https://github.com/Johann-S/bs-custom-file-input</a></li>

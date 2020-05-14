@@ -35,5 +35,23 @@ class UsersTableSeeder extends Seeder
             'role' => 'Finance'
         ]);
         $finance->save();
+
+        $user = new User([
+            'name' => 'gebruiker',
+            'email' => 'gebruiker@dotspix.be',
+            "password" => bcrypt('123456'),
+            'role' => 'Admin'
+        ]);
+
+        $user->save();
+
+        $user = new User([
+            'name' => 'Tim Willaert',
+            'email' => 'tim.willaert@student.ehb.be',
+            'password' => bcrypt('123456'),
+            'role' => 'user'
+        ]);
+
+        $user->save();
     }
 }

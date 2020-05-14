@@ -1,6 +1,6 @@
 @extends('../layouts.index')
 @section('content')
-<div id="background" style="height: 83vh; width: 100%;">
+<div id="background" style="height: calc(100vh-76px-56px); width: 100%;">
     <div class="d-flex justify-content-center align-items-center" style="height: 100%">
         <img src="../public/dots&pixlogo.png" style="height: 150px">
     </div>
